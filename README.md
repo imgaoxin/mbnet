@@ -1,10 +1,6 @@
-# oboard/mocket
+# mbnet
 
 A web framework for MoonBit.
-
-![logo](logo.jpg)
-
-![screenshots](screenshots/1.png)
 
 ## Usage
 
@@ -178,10 +174,3 @@ fn main {
   server.static("/static/", "./")
 }
 ```
-
-
-🙌快来吧！🙌
-
-QQ 群号：**949886784**
-
-![QQ群](qrcode.jpg)

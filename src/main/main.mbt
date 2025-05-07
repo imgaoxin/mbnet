@@ -1,4 +1,4 @@
-// Example usage of mocket package in MoonBit
+// Example usage of mbnet package in MoonBit
 
 // `run_async` spawn a new coroutine and execute an async function in it
 ///|
@@ -19,45 +19,45 @@ fn run_async(f : async () -> Unit) -> Unit = "%async.run"
 fn main {
   println("Starting server...")
   let port = 4000
-  let server = @mocket.listen(get_context(), port)
+  let server = @mbnet.listen(get_context(), port)
   listen_event("echo", fn(json) { println(json) })
 
   // 修改文件读取示例
   // try {
-  //   let data = @mocket.readFile!!("./logo.jpg")
+  //   let data = @mbnet.readFile!!("./logo.jpg")
   //   println(data.length())
   // } catch {
   //   err => println("Error reading file: \{err}")
   // }
 
-  server.get("/", fn(_req : @mocket.HttpRequest, _res : @mocket.HttpResponse) {
-    @mocket.html("<h1>Hello, World!</h1>")
+  server.get("/", fn(_req : @mbnet.HttpRequest, _res : @mbnet.HttpResponse) {
+    @mbnet.html("<h1>Hello, World!</h1>")
   })
   // string response example
   server.get("/text", fn(
-    _req : @mocket.HttpRequest,
-    _res : @mocket.HttpResponse
+    _req : @mbnet.HttpRequest,
+    _res : @mbnet.HttpResponse
   ) {
     String("<h1>Hello, World!</h1>")
   })
   // async json data example
   server.get("/async_data", async fn(
-    _req : @mocket.HttpRequest,
-    _res : @mocket.HttpResponse
+    _req : @mbnet.HttpRequest,
+    _res : @mbnet.HttpResponse
   ) {
     { "name": "John Doe", "age": 30, "city": "New York" }
   })
   // json data example
   server.get("/data", fn(
-    _req : @mocket.HttpRequest,
-    _res : @mocket.HttpResponse
+    _req : @mbnet.HttpRequest,
+    _res : @mbnet.HttpResponse
   ) {
     { "name": "John Doe", "age": 30, "city": "New York" }
   })
   // echo server example
   server.post("/echo", fn(
-    req : @mocket.HttpRequest,
-    _res : @mocket.HttpResponse
+    req : @mbnet.HttpRequest,
+    _res : @mbnet.HttpResponse
   ) {
     match req.body {
       Some(data) => data
@@ -66,18 +66,18 @@ fn main {
   })
   // file serving example
   server.get("/image", fn(
-    _req : @mocket.HttpRequest,
-    _res : @mocket.HttpResponse
+    _req : @mbnet.HttpRequest,
+    _res : @mbnet.HttpResponse
   ) {
-    @mocket.file("logo.jpg")
+    @mbnet.file("logo.jpg")
   })
 
   // buffer serving example
   server.get("/buffer", fn(
-    _req : @mocket.HttpRequest,
-    _res : @mocket.HttpResponse
+    _req : @mbnet.HttpRequest,
+    _res : @mbnet.HttpResponse
   ) {
-    @mocket.buffer(
+    @mbnet.buffer(
       [
         72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33, 32, 84, 104, 105,
         115, 32, 105, 115, 32, 97, 32, 116, 101, 115, 116, 32, 115, 116, 114, 105,
@@ -93,7 +93,7 @@ fn main {
   server.resource("/static/", "./")
   run_async(fn() {
     try {
-      let result = @mocket.exec!!("ls")
+      let result = @mbnet.exec!!("ls")
       println(result)
     } catch {
       err => println("Error executing command: \{err}")
@@ -101,7 +101,7 @@ fn main {
   })
   run_async(fn() {
     try {
-      let response = @mocket.fetch!!("https://api64.ipify.org/")
+      let response = @mbnet.fetch!!("https://api64.ipify.org/")
       println(response)
     } catch {
       err => println("Error fetching data: \{err}")

@@ -1,18 +1,15 @@
 {
-  "name": "oboard/mocket",
-  "version": "0.2.5",
+  "name": "imgaoxin/mbnet",
+  "version": "0.2.4",
   "deps": {
     "oboard/mimetype": "0.1.5",
-    "yj-qin/regexp": "0.3.4",
+    "yj-qin/regexp": "0.3.5",
     "Lampese/moonbit-chalk": "0.4.0"
   },
   "readme": "README.md",
-  "repository": "https://github.com/oboard/mocket",
+  "repository": "https://github.com/imgaoxin/mbnet",
   "license": "Apache-2.0",
-  "keywords": [
-    "http",
-    "server"
-  ],
-  "description": "A web framework for MoonBit.",
+  "keywords": ["http", "server"],
+  "description": "A web framework for MoonBit fork from mocket.",
   "source": "src"
 }

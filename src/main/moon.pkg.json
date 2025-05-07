@@ -2,16 +2,13 @@
   "is-main": true,
   "import": [
     {
-      "path": "oboard/mocket/lib",
-      "alias": "mocket"
+      "path": "imgaoxin/mbnet/lib",
+      "alias": "mbnet"
     }
   ],
   "link": {
     "wasm": {
-      "exports": [
-        "h_rd",
-        "h_re"
-      ]
+      "exports": ["h_rd", "h_re"]
     }
   }
 }

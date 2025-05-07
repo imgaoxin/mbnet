@@ -128,7 +128,7 @@ pub fn URL::to_string(self : URL) -> String {
   let query_str = match query {
     Some(q) =>
       "?" +
-      String::concat(
+      @string.concat(
         q
         .to_array()
         .map(fn(item) {
